@@ -1,0 +1,91 @@
+/// Что такое классы и структуры? Что такое перечисления?
+class Product {} // Тип данных.
+class Fruit: Product {} // Тип данных, наследуемый от другого типа данных.
+let apple = Fruit() // Экземпляр типа Fruit.
+let banana = Fruit()
+let pineapple = Fruit()
+class Vegetable: Product {}
+let tomato = Vegetable()
+let cucumber = Vegetable()
+class Beverage: Product {}
+let cocaCola = Beverage()
+let lemonade = Beverage()
+
+struct News {}
+let sportsNews = News()
+let weatherNews = News()
+
+enum Device {
+    case computer
+    case laptop
+    case tablet
+    case smartPhone
+    case smartWatch
+}
+let smartPhone: Device = .smartPhone // let smartPhone = Device.smartPhone
+
+/// Как объявляются и описываются классы, структуры и перечисления?
+struct User {
+    // Хранимые свойства.
+    let id: String
+    var firstName: String
+    let lastName: String
+    let phoneNumber: String
+    let photo: URL?
+    
+    // Вычисляемое свойство.
+    var name: String {
+        return self.firstName + "/n" + self.lastName
+    }
+    
+    // Метод (функция).
+    func phoneFormattedString(from phoneNumber: String) -> String {
+        return ""
+    }
+}
+
+class User2 {
+    let id: String
+    var firstName: String
+    let lastName: String
+    let phoneNumber: String
+    let photo: URL?
+    
+    init(id: String,
+         firstName: String,
+         lastName: String,
+         phoneNumber: String,
+         photo: URL?) {
+        self.id = id
+        self.firstName = firstName
+        self.lastName = lastName
+        self.phoneNumber = phoneNumber
+        self.photo = photo
+    }
+}
+
+enum Status {
+    case success(data: Data)
+    case failure(_ error: Error)
+}
+
+enum ScreenType: String {
+    case main = "Главная"
+    case settings = "Настройки"
+}
+let mainScreenTitle = ScreenType.main.rawValue
+
+/// Чем отличаются классы от структур?
+let user1 = User(id: "1", firstName: "1", lastName: "1", phoneNumber: "1", photo: nil)
+let user2 = User(id: "2", firstName: "2", lastName: "2", phoneNumber: "2", photo: nil)
+let usersArray = [user1, user2]
+var usersArray2 = usersArray
+usersArray2[0].firstName = "11"
+print(usersArray[0].firstName) // "1" - поскольку User - тип значения.
+
+let user3 = User2(id: "3", firstName: "3", lastName: "3", phoneNumber: "3", photo: nil)
+let user4 = User2(id: "4", firstName: "4", lastName: "4", phoneNumber: "4", photo: nil)
+let usersArray3 = [user3, user4]
+var usersArray4 = usersArray3
+usersArray4[0].firstName = "33"
+print(usersArray3[0].firstName) // "33" - поскольку User2 - ссылочный тип.
