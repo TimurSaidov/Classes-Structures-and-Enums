@@ -76,6 +76,10 @@ enum ScreenType: String {
 let mainScreenTitle = ScreenType.main.rawValue
 
 /// Чем отличаются классы от структур?
+protocol ViewModelProtocol {}
+class FilmViewModel: ViewModelProtocol {}
+struct SerialViewModel: ViewModelProtocol {}
+
 let user1 = User(id: "1", firstName: "1", lastName: "1", phoneNumber: "1", photo: nil)
 let user2 = User(id: "2", firstName: "2", lastName: "2", phoneNumber: "2", photo: nil)
 let usersArray = [user1, user2]
