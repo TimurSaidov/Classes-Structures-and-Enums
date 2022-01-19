@@ -39,7 +39,7 @@ struct User {
     }
     
     // Метод (функция).
-    func phoneFormattedString(from phoneNumber: String) -> String {
+    func phoneFormattedString() -> String {
         return ""
     }
 }
