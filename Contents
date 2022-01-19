@@ -80,6 +80,12 @@ protocol ViewModelProtocol {}
 class FilmViewModel: ViewModelProtocol {}
 struct SerialViewModel: ViewModelProtocol {}
 
+class Vehicle {}
+class Car: Vehicle {}
+class Bus: Vehicle {}
+struct Vehicle2 {}
+class Car2: Vehicle2 {} // Ошибка компиляции.
+
 let user1 = User(id: "1", firstName: "1", lastName: "1", phoneNumber: "1", photo: nil)
 let user2 = User(id: "2", firstName: "2", lastName: "2", phoneNumber: "2", photo: nil)
 let usersArray = [user1, user2]
